@@ -16,4 +16,8 @@ backup_file() {
 backup_file ~/.vimrc
 ln -sv "$(pwd)/vim/.vimrc" ~/.vimrc
 
+# TMUX
+backup_file ~/.tmux.conf
+ln -sv "$(pwd)/.tmux.conf" ~/.tmux.conf
+
 echo "Done!"
