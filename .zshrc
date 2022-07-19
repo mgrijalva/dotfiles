@@ -1,5 +1,5 @@
 
-export PROMPT='%{$fg[green]%}%2d%{$reset_color%} $(git_prompt_info)🦙 '
+export PROMPT='%{$fg[green]%}%1d%{$reset_color%} $(git_prompt_info)🦙 '
 
 export MONOLITH_DIR=/workspaces/shagorex/sharex/monolith
 
