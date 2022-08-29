@@ -3,5 +3,5 @@
 cat .zshrc >> ~/.zshrc
 
 ./git.sh
-./vim.sh
+#./vim.sh
 # ./tmux.sh
