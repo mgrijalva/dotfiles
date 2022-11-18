@@ -72,9 +72,8 @@ endif
 
 " Keyboard shortcuts
 nnoremap <C-N> :NERDTreeToggle<CR>
-nnoremap ,f :ALEFix<CR>
-nnoremap <C-]> :ALEGoToDefinition<CR>
 nmap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gr <Plug>(coc-references)
 nnoremap <silent> ,f <Plug>(coc-format)
 nnoremap <C-J> :bp<CR>
 nnoremap <C-K> :bn<CR>
