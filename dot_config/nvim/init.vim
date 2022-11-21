@@ -15,6 +15,9 @@ call plug#end()
 " My settings
 set mouse=a
 set updatetime=200
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set hidden " allow hidden buffers (buffers with unsaved stuff)
 
 " Appearance
