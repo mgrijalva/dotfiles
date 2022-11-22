@@ -1,21 +1,16 @@
 #!/bin/bash
 
-cat .zshrc >> ~/.zshrc
+sh -c "$(curl -fsLS get.chezmoi.io)"
 
-####### NEOVIM
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # mac
-  brew install neovim
-else
-  sudo add-apt-repository -y ppa:neovim-ppa/stable
-  sudo apt-get update
-  sudo apt-get install neovim
-fi
+variables=( email )
+echo 'Making sure these variables are set:'
+echo $variables
+for i in "${variables[@]}"; do
+  ./bin/chezmoi data | grep $i
+  if [ $? == 1 ]; then
+    echo "Variable $i is not set in .chezmoidata.yaml!"
+    exit 1
+  fi
+done
 
-mkdir ~/.config/nvim
-cp init.vim ~/.config/nvim/init.vim
-cp coc-settings.json ~/.config/nvim/coc-settings.json
-
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
+./bin/chezmoi init --apply --verbose https://github.com/mgrijalva/dotfiles.git
