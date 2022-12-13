@@ -1,16 +1,17 @@
 #!/bin/bash
 
-sh -c "$(curl -fsLS get.chezmoi.io)"
+# vim
+cp .vimrc ~/.vimrc
 
-variables=( email )
-echo 'Making sure these variables are set:'
-echo $variables
-for i in "${variables[@]}"; do
-  ./bin/chezmoi data | grep $i
-  if [ $? == 1 ]; then
-    echo "Variable $i is not set in .chezmoidata.yaml!"
-    exit 1
-  fi
-done
+# nvim
+mkdir -p .config/nvim/ 
+cp nvim/ ~/.config/nvim
 
-./bin/chezmoi init --apply --verbose https://github.com/mgrijalva/dotfiles.git
+# tmux
+cp .tmux.conf ~/.tmux.conf
+
+# Useful git shortcuts
+git config --global alias.co checkout
+git config --global alias.s status
+git config --global alias.p pull
+git config --global alias.pwf push --force-with-lease
